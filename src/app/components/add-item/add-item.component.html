@@ -1,0 +1,112 @@
+<div class="container product-form-container bg-light">
+  <form [formGroup]="productForm" (ngSubmit)="addOrEditItem()">
+    <div class="form-group">
+      <label>Name</label>
+      <input
+        class="form-control"
+        formControlName="name"
+        placeholder="enter product name"
+      />
+      <div *ngIf="getControl.name.touched && getControl.name.invalid">
+        <p *ngIf="getControl.name.errors?.required" class="text-danger">
+          this field is required
+        </p>
+      </div>
+    </div>
+    <div class="form-group">
+      <label>Image</label>
+      <input
+        class="form-control"
+        formControlName="imageUrl"
+        placeholder="enter image url"
+      />
+    </div>
+    <div class="form-group">
+      <label>Price</label>
+      <input
+        type="number"
+        class="form-control"
+        formControlName="price"
+        placeholder="enter price"
+      />
+      <div *ngIf="getControl.price.touched && getControl.price.invalid">
+        <p *ngIf="getControl.price.errors?.required" class="text-danger">
+          this field is required
+        </p>
+        <p *ngIf="getControl.price.errors?.min" class="text-danger">
+          value should be greater than or equal to 1
+        </p>
+      </div>
+    </div>
+    <div class="form-group">
+      <label>Quantity</label>
+      <input
+        type="number"
+        class="form-control"
+        formControlName="quantity"
+        placeholder="enter quantity"
+      />
+      <div *ngIf="getControl.quantity.touched && getControl.quantity.invalid">
+        <p *ngIf="getControl.quantity.errors?.required" class="text-danger">
+          this field is required
+        </p>
+        <p *ngIf="getControl.quantity.errors?.min" class="text-danger">
+          value should be greater than or equal to 1
+        </p>
+      </div>
+    </div>
+    <div class="form-group">
+      <label>Description</label>
+      <textarea
+        class="form-control"
+        formControlName="description"
+        placeholder="enter description"
+        rows="4"
+      ></textarea>
+      <div
+        *ngIf="getControl.description.touched && getControl.description.invalid"
+      >
+        <p *ngIf="getControl.description.errors?.required" class="text-danger">
+          this field is required
+        </p>
+      </div>
+    </div>
+    <div class="form-group">
+      <label>Expiry Date</label>
+      <div class="input-group">
+        <input
+          class="form-control"
+          placeholder="yyyy-mm-dd"
+          name="dp"
+          formControlName="expiryDate"
+          ngbDatepicker
+          #d="ngbDatepicker"
+        />
+        <div class="input-group-append">
+          <button
+            class="btn btn-outline-secondary calendar"
+            (click)="d.toggle()"
+            type="button"
+          ></button>
+        </div>
+      </div>
+      <div
+        *ngIf="getControl.expiryDate.touched && getControl.expiryDate.invalid"
+      >
+        <p *ngIf="getControl.expiryDate.errors?.required" class="text-danger">
+          this field is required
+        </p>
+      </div>
+    </div>
+
+    <button
+      [disabled]="!productForm.valid"
+      type="submit"
+      class="btn btn-primary"
+    >
+      {{ isEditProduct ? "Edit" : "Add" }}
+    </button>
+
+    <input type="reset" text="reset" class="btn btn-danger" />
+  </form>
+</div>

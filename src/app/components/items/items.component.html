@@ -1,0 +1,37 @@
+<div class="container bg-light product-container">
+  <br />
+  <div class="row">
+    <div class="col-12">
+      <input
+        class="form-control"
+        placeholder="Search Product"
+        [(ngModel)]="filterText"
+      />
+    </div>
+  </div>
+  <br />
+  <div class="row">
+    <div
+      *ngFor="let product of Products | sortProduct: filterText"
+      class="col-lg-4 col-md-4 col-sm-6 col-xs-12"
+    >
+      <div class="card product-card" style="width: 100%">
+        <img
+          class="card-img-top product-image"
+          src="{{ product.imageUrl }}"
+          alt="Card image cap"
+        />
+        <div class="card-body">
+          <h5 class="card-title">{{ product?.name }}</h5>
+          <p class="card-text">
+            {{ product?.description | description }}
+          </p>
+          <p class="text-success">Price - ${{ product?.price }}</p>
+          <p class="text-danger">{{ product?.quantity }} available</p>
+          <a class="btn btn-primary" (click)="onEdit(product)">Edit</a>
+          <a class="btn btn-danger" (click)="onDelete(product)">Delete</a>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

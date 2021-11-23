@@ -1,0 +1,50 @@
+<div class="container bg-light user-container">
+  <br />
+  <div class="row">
+    <div class="col-12">
+      <input
+        class="form-control"
+        [(ngModel)]="filterText"
+        placeholder="filter by user id"
+      />
+    </div>
+  </div>
+  <br />
+  <div class="table-responsive">
+    <table class="table">
+      <thead class="thead-dark">
+        <tr>
+          <th scope="col">User Id</th>
+          <th scope="col">First Name</th>
+          <th scope="col" class="d-none d-lg-table-cell">Last Name</th>
+          <th scope="col">User Type</th>
+          <th scope="col" class="d-none d-lg-table-cell">Date of Birth</th>
+          <th scope="col">Actions</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr *ngFor="let user of users | filterUser: filterText">
+          <td scope="row">{{ user.userId }}</td>
+          <td>
+            {{ user.firstName }}
+          </td>
+          <td class="d-none d-lg-table-cell">
+            {{ user.lastName }}
+          </td>
+          <td>
+            {{ user.userType }}
+          </td>
+          <td class="d-none d-lg-table-cell">
+            {{ user.dateOfBirth | date }}
+          </td>
+          <td>
+            <button class="btn btn-primary" (click)="onEdit(user)">Edit</button>
+            <button class="btn btn-danger" (click)="onDelete(user)">
+              Delete
+            </button>
+          </td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+</div>
