@@ -15,7 +15,7 @@ export class AddUserComponent implements OnInit {
   public userForm: any;
   constructor(
     private fb: FormBuilder,
-    private userService: UserService,
+    public userService: UserService,
     private router: Router
   ) {
     let formInitialValues: any =

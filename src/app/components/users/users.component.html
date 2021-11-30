@@ -38,8 +38,18 @@
             {{ user.dateOfBirth | date }}
           </td>
           <td>
-            <button class="btn btn-primary" (click)="onEdit(user)">Edit</button>
-            <button class="btn btn-danger" (click)="onDelete(user)">
+            <button
+              class="btn btn-primary"
+              data-aq="btnEdit"
+              (click)="onEdit(user)"
+            >
+              Edit
+            </button>
+            <button
+              class="btn btn-danger"
+              data-aq="btnDelete"
+              (click)="onDelete(user)"
+            >
               Delete
             </button>
           </td>

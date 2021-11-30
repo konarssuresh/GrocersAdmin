@@ -28,8 +28,15 @@
           </p>
           <p class="text-success">Price - ${{ product?.price }}</p>
           <p class="text-danger">{{ product?.quantity }} available</p>
-          <a class="btn btn-primary" (click)="onEdit(product)">Edit</a>
-          <a class="btn btn-danger" (click)="onDelete(product)">Delete</a>
+          <a class="btn btn-primary" data-aq="btnEdit" (click)="onEdit(product)"
+            >Edit</a
+          >
+          <a
+            class="btn btn-danger"
+            data-aq="btnDelete"
+            (click)="onDelete(product)"
+            >Delete</a
+          >
         </div>
       </div>
     </div>

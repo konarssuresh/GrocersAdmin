@@ -6,8 +6,8 @@ import { Observable } from 'rxjs';
   providedIn: 'root',
 })
 export class UserService {
-  private url = 'http://localhost:9090/api/users';
-  constructor(private http: HttpClient) {}
+  public url = 'http://localhost:9090/api/users';
+  constructor(public http: HttpClient) {}
 
   addUser = (user: Object): Observable<any> => {
     return this.http.post(`${this.url}/signUp`, user);

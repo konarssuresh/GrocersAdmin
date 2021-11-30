@@ -17,7 +17,18 @@ import { DescriptionPipe } from './pipes/description.pipe';
 import { AddUserComponent } from './components/add-user/add-user.component';
 import { FilterUserPipe } from './pipes/filter-user.pipe';
 @NgModule({
-  declarations: [AppComponent, ItemsComponent, UsersComponent, HomeComponent, AddItemComponent, ErrorComponent, SortProductPipe, DescriptionPipe, AddUserComponent, FilterUserPipe],
+  declarations: [
+    AppComponent,
+    ItemsComponent,
+    UsersComponent,
+    HomeComponent,
+    AddItemComponent,
+    ErrorComponent,
+    SortProductPipe,
+    DescriptionPipe,
+    AddUserComponent,
+    FilterUserPipe,
+  ],
   imports: [
     BrowserModule,
     AppRoutingModule,
@@ -28,5 +39,6 @@ import { FilterUserPipe } from './pipes/filter-user.pipe';
   ],
   providers: [ItemService, UserService],
   bootstrap: [AppComponent],
+  exports: [SortProductPipe, DescriptionPipe],
 })
 export class AppModule {}

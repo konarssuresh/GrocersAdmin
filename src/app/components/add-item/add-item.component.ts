@@ -14,8 +14,8 @@ export class AddItemComponent implements OnInit {
   public productForm: any;
   constructor(
     private fb: FormBuilder,
-    private itemService: ItemService,
-    private router: Router
+    public itemService: ItemService,
+    public router: Router
   ) {
     let formInitialValues: any =
       this.router?.getCurrentNavigation()?.extras?.state?.product;
